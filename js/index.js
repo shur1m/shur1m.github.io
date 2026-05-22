@@ -19,8 +19,10 @@
 
 /** @type {PostMetadata[]} */
 const posts = window.generatedPosts || [];
+
 /** @type {ProjectMetadata[]} */
 const projects = window.projectMetadata || [];
+
 const HOMEPAGE_POST_LIMIT = 3;
 const TYPEWRITER_CHARACTER_DELAY_MS = 55;
 const TYPEWRITER_INITIAL_DELAY_MS = 120;
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const terminalTitle = document.querySelector(".terminal-title");
 
   if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
+    currentYear.textContent = new Date().getFullYear().toString();
   }
 
   if (blogContainer) {
@@ -135,7 +137,7 @@ function addProjects(projectContainer) {
  * @returns {void}
  */
 function enableCopyToClipboard(copyButton) {
-  let feedbackTimeoutId;
+  let feedbackTimeoutId = -1;
   const copyText = copyButton.dataset.copyText;
 
   copyButton.addEventListener("click", async () => {
@@ -182,7 +184,7 @@ function startTypewriter(titleElement) {
   }
 
   const longestVariant = variants.reduce((longest, current) =>
-    current.length > longest.length ? current : longest
+    current.length > longest.length ? current : longest,
   );
   let variantIndex = 0;
 
