@@ -1,12 +1,4 @@
-// TODO move posts and projects to config files
-const posts = [
-  {
-    title: "Demystifying CSS Grid for Backend Engineers",
-    date: "2024-05-15",
-    excerpt:
-      "A practical guide to understanding and using CSS Grid layout without pulling your hair out.",
-  },
-];
+const posts = window.generatedPosts || [];
 
 const projects = [
   {
@@ -35,12 +27,6 @@ function addPosts(blogContainer) {
   posts.forEach((post) => {
     const article = document.createElement("article");
 
-    // Create time element
-    const time = document.createElement("time");
-    time.className = "post-date";
-    time.setAttribute("datetime", post.date);
-    time.textContent = post.date;
-
     // Create content container
     const contentDiv = document.createElement("div");
     contentDiv.className = "post-content";
@@ -48,18 +34,18 @@ function addPosts(blogContainer) {
     // Create heading and link
     const h3 = document.createElement("h3");
     const link = document.createElement("a");
-    link.href = "#";
+    link.href = post.url;
     link.textContent = post.title;
     h3.appendChild(link);
 
     // Create excerpt
     const excerpt = document.createElement("p");
     excerpt.className = "post-excerpt";
-    excerpt.textContent = post.excerpt;
+    excerpt.textContent = post.description;
 
     // Assemble the components
     contentDiv.append(h3, excerpt);
-    article.append(time, contentDiv);
+    article.append(contentDiv);
     blogContainer.appendChild(article);
   });
 }

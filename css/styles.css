@@ -108,22 +108,8 @@ nav {
   color: var(--muted);
 }
 
-.social-links {
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-}
-
 main {
   padding-top: 3rem;
-}
-
-section {
-  padding: 2rem 0;
-}
-
-section + section,
-footer {
-  border-top: 1px solid var(--border);
 }
 
 h1 {
@@ -145,101 +131,6 @@ h3 {
 
 p {
   line-height: 1.5;
-}
-
-.intro-text {
-  font-size: 1.125rem;
-  color: var(--muted);
-  line-height: 1.625;
-  max-width: 42rem;
-  margin-bottom: 1.5rem;
-}
-
-.view-all-link {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 2rem;
-}
-
-#blog-posts,
-#project-list {
-  display: flex;
-  flex-direction: column;
-}
-
-article,
-.project-item {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--surface);
-}
-
-.project-item {
-  padding: 1.25rem 0;
-}
-
-article:last-child,
-.project-item:last-child {
-  border-bottom: none;
-}
-
-@media (min-width: 640px) {
-  article {
-    flex-direction: row;
-    align-items: baseline;
-  }
-}
-
-.post-date {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  color: var(--text);
-  margin-bottom: 0.25rem;
-}
-
-@media (min-width: 640px) {
-  .post-date {
-    width: 8rem;
-    margin-bottom: 0;
-  }
-}
-
-.post-content h3 a,
-.project-name a {
-  display: inline-block;
-}
-
-.post-excerpt,
-.project-description,
-.project-tech,
-.view-all-link,
-.nav-links,
-.social-links a {
-  color: var(--muted);
-}
-
-.post-excerpt {
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-}
-
-.project-description {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.project-tech {
-  margin-top: 0.75rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
 }
 
 footer {
