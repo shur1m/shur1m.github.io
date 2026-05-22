@@ -1,7 +1,20 @@
+// @ts-check
+
+/**
+ * @typedef {Object} PostMetadata
+ * @property {string} title
+ * @property {string} date
+ * @property {string} description
+ * @property {string} url
+ */
+
+/** @type {PostMetadata[]} */
 const posts = window.generatedPosts || [];
 
 document.addEventListener("DOMContentLoaded", () => {
+  /** @type {HTMLElement | null} */
   const blogContainer = document.getElementById("blog-posts");
+  /** @type {HTMLElement | null} */
   const currentYear = document.getElementById("current-year");
 
   if (currentYear) {
@@ -13,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/**
+ * @param {HTMLElement} blogContainer
+ * @returns {void}
+ */
 function addPosts(blogContainer) {
   posts.forEach((post) => {
     const article = document.createElement("article");

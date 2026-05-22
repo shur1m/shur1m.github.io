@@ -24,6 +24,19 @@ def build_site() -> None:
 def write_post_metadata(posts: list[Post]) -> None:
     sorted_posts = sorted(posts, key=lambda post: post.created_on, reverse=True)
     metadata = [post.as_metadata() for post in sorted_posts]
-    js_content = "window.generatedPosts = " + json.dumps(metadata, indent=2) + ";\n"
+    js_content = (
+        "// @ts-check\n\n"
+        "/**\n"
+        " * @typedef {Object} PostMetadata\n"
+        " * @property {string} title\n"
+        " * @property {string} date\n"
+        " * @property {string} description\n"
+        " * @property {string} url\n"
+        " */\n\n"
+        "/** @type {PostMetadata[]} */\n"
+        "window.generatedPosts = "
+        + json.dumps(metadata, indent=2)
+        + ";\n"
+    )
     BLOG_DATA_PATH.write_text(js_content, encoding="utf-8")
     print(f"Generated: {BLOG_DATA_PATH.relative_to(INPUT_DIR.parent)}")

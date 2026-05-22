@@ -1,3 +1,14 @@
+// @ts-check
+
+/**
+ * @typedef {Object} ProjectMetadata
+ * @property {string} name
+ * @property {string} description
+ * @property {string[]} tags
+ * @property {string} url
+ */
+
+/** @type {ProjectMetadata[]} */
 window.projectMetadata = [
   {
     name: "WhenCanIRetire",

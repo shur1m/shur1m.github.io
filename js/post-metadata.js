@@ -1,3 +1,14 @@
+// @ts-check
+
+/**
+ * @typedef {Object} PostMetadata
+ * @property {string} title
+ * @property {string} date
+ * @property {string} description
+ * @property {string} url
+ */
+
+/** @type {PostMetadata[]} */
 window.generatedPosts = [
   {
     "title": "Important Stuff",

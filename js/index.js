@@ -1,4 +1,25 @@
+// @ts-check
+
+/**
+ * @typedef {Object} PostMetadata
+ * @property {string} title
+ * @property {string} date
+ * @property {string} description
+ * @property {string} url
+ */
+
+/**
+ * @typedef {Object} ProjectMetadata
+ * @property {string} name
+ * @property {string} description
+ * @property {string[]=} tags
+ * @property {string[]=} tech
+ * @property {string} url
+ */
+
+/** @type {PostMetadata[]} */
 const posts = window.generatedPosts || [];
+/** @type {ProjectMetadata[]} */
 const projects = window.projectMetadata || [];
 const HOMEPAGE_POST_LIMIT = 3;
 const TYPEWRITER_CHARACTER_DELAY_MS = 55;
@@ -7,10 +28,15 @@ const TYPEWRITER_HOLD_DELAY_MS = 1400;
 const TYPEWRITER_CLEAR_DELAY_MS = 180;
 
 document.addEventListener("DOMContentLoaded", () => {
+  /** @type {HTMLElement | null} */
   const blogContainer = document.getElementById("blog-posts");
+  /** @type {HTMLElement | null} */
   const projectContainer = document.getElementById("project-list");
+  /** @type {HTMLElement | null} */
   const currentYear = document.getElementById("current-year");
+  /** @type {HTMLButtonElement | null} */
   const copyButton = document.querySelector(".social-copy-link");
+  /** @type {HTMLElement | null} */
   const terminalTitle = document.querySelector(".terminal-title");
 
   if (currentYear) {
@@ -34,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/**
+ * @param {HTMLElement} blogContainer
+ * @returns {void}
+ */
 function addPosts(blogContainer) {
   posts.slice(0, HOMEPAGE_POST_LIMIT).forEach((post) => {
     const article = document.createElement("article");
@@ -62,6 +92,10 @@ function addPosts(blogContainer) {
   });
 }
 
+/**
+ * @param {HTMLElement} projectContainer
+ * @returns {void}
+ */
 function addProjects(projectContainer) {
   projects.forEach((project) => {
     const projectTags = project.tags || project.tech || [];
@@ -96,6 +130,10 @@ function addProjects(projectContainer) {
   });
 }
 
+/**
+ * @param {HTMLButtonElement} copyButton
+ * @returns {void}
+ */
 function enableCopyToClipboard(copyButton) {
   let feedbackTimeoutId;
   const copyText = copyButton.dataset.copyText;
@@ -121,6 +159,10 @@ function enableCopyToClipboard(copyButton) {
   });
 }
 
+/**
+ * @param {HTMLElement} titleElement
+ * @returns {void}
+ */
 function startTypewriter(titleElement) {
   const ghostText = titleElement.querySelector(".terminal-title-ghost");
   const liveText = titleElement.querySelector(".terminal-title-live");

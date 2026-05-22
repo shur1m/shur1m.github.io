@@ -1,7 +1,21 @@
+// @ts-check
+
+/**
+ * @typedef {Object} ProjectMetadata
+ * @property {string} name
+ * @property {string} description
+ * @property {string[]=} tags
+ * @property {string[]=} tech
+ * @property {string} url
+ */
+
+/** @type {ProjectMetadata[]} */
 const projects = window.projectMetadata || [];
 
 document.addEventListener("DOMContentLoaded", () => {
+  /** @type {HTMLElement | null} */
   const projectContainer = document.getElementById("project-list");
+  /** @type {HTMLElement | null} */
   const currentYear = document.getElementById("current-year");
 
   if (currentYear) {
@@ -13,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/**
+ * @param {HTMLElement} projectContainer
+ * @returns {void}
+ */
 function addProjects(projectContainer) {
   projects.forEach((project) => {
     const projectTags = project.tags || project.tech || [];
