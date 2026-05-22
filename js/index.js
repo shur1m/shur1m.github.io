@@ -1,6 +1,10 @@
 const posts = window.generatedPosts || [];
 const projects = window.projectMetadata || [];
 const HOMEPAGE_POST_LIMIT = 3;
+const TYPEWRITER_CHARACTER_DELAY_MS = 55;
+const TYPEWRITER_INITIAL_DELAY_MS = 120;
+const TYPEWRITER_HOLD_DELAY_MS = 1400;
+const TYPEWRITER_CLEAR_DELAY_MS = 180;
 
 document.addEventListener("DOMContentLoaded", () => {
   const blogContainer = document.getElementById("blog-posts");
@@ -119,25 +123,56 @@ function enableCopyToClipboard(copyButton) {
 
 function startTypewriter(titleElement) {
   const ghostText = titleElement.querySelector(".terminal-title-ghost");
+  const liveText = titleElement.querySelector(".terminal-title-live");
   const textElement = titleElement.querySelector(".terminal-title-text");
 
-  if (!ghostText || !textElement) {
+  if (!ghostText || !liveText || !textElement) {
     return;
   }
 
-  const fullText = ghostText.textContent || "";
-  let currentIndex = 0;
+  const variants = (titleElement.dataset.titleVariants || "")
+    .split("|")
+    .map((variant) => variant.trim())
+    .filter(Boolean);
 
-  textElement.textContent = "";
+  if (variants.length === 0) {
+    return;
+  }
 
-  const typeNextCharacter = () => {
-    currentIndex += 1;
-    textElement.textContent = fullText.slice(0, currentIndex);
+  const longestVariant = variants.reduce((longest, current) =>
+    current.length > longest.length ? current : longest
+  );
+  let variantIndex = 0;
 
-    if (currentIndex < fullText.length) {
-      window.setTimeout(typeNextCharacter, 55);
+  ghostText.textContent = longestVariant;
+
+  const typeVariant = () => {
+    const activeVariant = variants[variantIndex];
+    liveText.setAttribute("aria-label", activeVariant);
+    textElement.textContent = "";
+
+    let currentIndex = 0;
+
+    const typeNextCharacter = () => {
+      currentIndex += 1;
+      textElement.textContent = activeVariant.slice(0, currentIndex);
+
+      if (currentIndex < activeVariant.length) {
+        window.setTimeout(typeNextCharacter, TYPEWRITER_CHARACTER_DELAY_MS);
+        return;
+      }
+
+      window.setTimeout(() => {
+        textElement.textContent = "";
+        variantIndex = (variantIndex + 1) % variants.length;
+        window.setTimeout(typeVariant, TYPEWRITER_CLEAR_DELAY_MS);
+      }, TYPEWRITER_HOLD_DELAY_MS);
+    };
+
+    if (activeVariant.length > 0) {
+      window.setTimeout(typeNextCharacter, TYPEWRITER_CHARACTER_DELAY_MS);
     }
   };
 
-  window.setTimeout(typeNextCharacter, 120);
+  window.setTimeout(typeVariant, TYPEWRITER_INITIAL_DELAY_MS);
 }
