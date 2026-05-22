@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectContainer = document.getElementById("project-list");
   const currentYear = document.getElementById("current-year");
   const copyButton = document.querySelector(".social-copy-link");
+  const terminalTitle = document.querySelector(".terminal-title");
 
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
@@ -22,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (copyButton) {
     enableCopyToClipboard(copyButton);
+  }
+
+  if (terminalTitle) {
+    startTypewriter(terminalTitle);
   }
 });
 
@@ -109,4 +114,27 @@ function enableCopyToClipboard(copyButton) {
       console.error("Failed to copy text to clipboard.", error);
     }
   });
+}
+
+function startTypewriter(titleElement) {
+  const textElement = titleElement.querySelector(".terminal-title-text");
+  const fullText = titleElement.dataset.typewriterText || "";
+
+  if (!textElement || !fullText) {
+    return;
+  }
+
+  let currentIndex = 0;
+  textElement.textContent = "";
+
+  const typeNextCharacter = () => {
+    currentIndex += 1;
+    textElement.textContent = fullText.slice(0, currentIndex);
+
+    if (currentIndex < fullText.length) {
+      window.setTimeout(typeNextCharacter, 65);
+    }
+  };
+
+  window.setTimeout(typeNextCharacter, 200);
 }

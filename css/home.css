@@ -45,6 +45,28 @@ footer {
   margin-bottom: 2rem;
 }
 
+.terminal-title {
+  display: inline-block;
+  font-family: var(--developer-font);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.terminal-title-text {
+  display: inline-flex;
+  align-items: center;
+  min-width: 4ch;
+}
+
+.terminal-title-text::after {
+  content: "";
+  width: 0.58em;
+  height: 1.05em;
+  margin-left: 0.08em;
+  background: currentColor;
+  animation: terminal-caret-blink 1s steps(1, end) infinite;
+}
+
 .intro-text {
   font-size: 1rem;
   color: var(--muted);
@@ -181,6 +203,18 @@ footer {
   100% {
     opacity: 0;
     transform: translate(-50%, -0.55rem) scale(0.98);
+  }
+}
+
+@keyframes terminal-caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
   }
 }
 
