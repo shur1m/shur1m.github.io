@@ -1,3 +1,4 @@
+/* About links */
 .social-links {
   font-family: var(--developer-font);
   font-size: var(--developer-font-size);
@@ -31,6 +32,7 @@
   fill: currentColor;
 }
 
+/* Homepage section layout */
 section {
   padding: 2rem 0;
 }
@@ -40,6 +42,7 @@ footer {
   border-top: 1px solid var(--border);
 }
 
+/* About title and intro */
 #about h1 {
   font-size: 1.5rem;
   margin-bottom: 2rem;
@@ -47,24 +50,39 @@ footer {
 
 .terminal-title {
   display: inline-block;
+  position: relative;
   font-family: var(--developer-font);
   font-weight: 600;
   letter-spacing: 0;
+  line-height: 1;
+  font-variant-ligatures: none;
+}
+
+.terminal-title-ghost {
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.terminal-title-live {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: inline-flex;
+  align-items: flex-end;
+  white-space: nowrap;
 }
 
 .terminal-title-text {
-  display: inline-flex;
-  align-items: center;
-  min-width: 4ch;
+  display: inline-block;
+  min-width: 0.1ch;
 }
 
-.terminal-title-text::after {
-  content: "";
+.terminal-caret {
+  display: inline-block;
   width: 0.58em;
   height: 1.05em;
   margin-left: 0.08em;
   background: currentColor;
-  animation: terminal-caret-blink 1s steps(1, end) infinite;
+  animation: terminal-caret-blink 0.9s ease-in-out infinite;
 }
 
 .intro-text {
@@ -75,6 +93,7 @@ footer {
   margin-bottom: 1rem;
 }
 
+/* Section headers */
 .view-all-link {
   font-family: var(--developer-font);
   font-size: 0.9rem;
@@ -94,6 +113,7 @@ footer {
   margin-bottom: 0;
 }
 
+/* Blog and project lists */
 #blog-posts,
 #project-list {
   display: flex;
@@ -130,6 +150,7 @@ footer {
   }
 }
 
+/* Blog post metadata and content */
 .post-date {
   font-family: var(--developer-font);
   font-size: var(--developer-font-size);
@@ -152,6 +173,7 @@ footer {
   display: inline-block;
 }
 
+/* Muted homepage text and interactive states */
 :is(.post-excerpt, .project-description, .project-tech, .view-all-link) {
   color: var(--muted);
 }
@@ -164,6 +186,7 @@ footer {
   background-color: var(--link-hover-bg);
 }
 
+/* Copy-to-clipboard feedback */
 .copy-feedback {
   position: absolute;
   top: -1.6rem;
@@ -184,6 +207,7 @@ footer {
   animation: copy-pop 1s ease;
 }
 
+/* Homepage animations */
 @keyframes copy-pop {
   0% {
     opacity: 0;
@@ -208,16 +232,17 @@ footer {
 
 @keyframes terminal-caret-blink {
   0%,
-  49% {
+  45% {
     opacity: 1;
   }
 
-  50%,
+  55%,
   100% {
     opacity: 0;
   }
 }
 
+/* Project and post detail copy */
 .post-excerpt {
   margin-top: 0.25rem;
   font-size: 0.875rem;

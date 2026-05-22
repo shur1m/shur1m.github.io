@@ -117,14 +117,16 @@ function enableCopyToClipboard(copyButton) {
 }
 
 function startTypewriter(titleElement) {
+  const ghostText = titleElement.querySelector(".terminal-title-ghost");
   const textElement = titleElement.querySelector(".terminal-title-text");
-  const fullText = titleElement.dataset.typewriterText || "";
 
-  if (!textElement || !fullText) {
+  if (!ghostText || !textElement) {
     return;
   }
 
+  const fullText = ghostText.textContent || "";
   let currentIndex = 0;
+
   textElement.textContent = "";
 
   const typeNextCharacter = () => {
@@ -132,9 +134,9 @@ function startTypewriter(titleElement) {
     textElement.textContent = fullText.slice(0, currentIndex);
 
     if (currentIndex < fullText.length) {
-      window.setTimeout(typeNextCharacter, 65);
+      window.setTimeout(typeNextCharacter, 55);
     }
   };
 
-  window.setTimeout(typeNextCharacter, 200);
+  window.setTimeout(typeNextCharacter, 120);
 }
