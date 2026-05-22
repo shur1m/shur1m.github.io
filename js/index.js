@@ -70,6 +70,7 @@ function addProjects(projectContainer) {
 
     const link = document.createElement("a");
     link.href = project.url;
+    link.target = "_blank";
     link.textContent = `${project.name} ↗`;
     h3.appendChild(link);
 
