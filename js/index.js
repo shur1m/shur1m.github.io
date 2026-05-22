@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const blogContainer = document.getElementById("blog-posts");
   const projectContainer = document.getElementById("project-list");
   const currentYear = document.getElementById("current-year");
+  const copyButton = document.querySelector(".social-copy-link");
 
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
@@ -17,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (projectContainer) {
     addProjects(projectContainer);
+  }
+
+  if (copyButton) {
+    enableCopyToClipboard(copyButton);
   }
 });
 
@@ -78,5 +83,30 @@ function addProjects(projectContainer) {
     // Assemble and append to fragment
     div.append(h3, desc, techDiv);
     projectContainer.appendChild(div);
+  });
+}
+
+function enableCopyToClipboard(copyButton) {
+  let feedbackTimeoutId;
+  const copyText = copyButton.dataset.copyText;
+
+  copyButton.addEventListener("click", async () => {
+    if (!copyText) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(copyText);
+      copyButton.classList.remove("is-copied");
+      void copyButton.offsetWidth;
+      copyButton.classList.add("is-copied");
+
+      window.clearTimeout(feedbackTimeoutId);
+      feedbackTimeoutId = window.setTimeout(() => {
+        copyButton.classList.remove("is-copied");
+      }, 1000);
+    } catch (error) {
+      console.error("Failed to copy text to clipboard.", error);
+    }
   });
 }

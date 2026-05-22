@@ -1,6 +1,34 @@
 .social-links {
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
+  font-family: var(--developer-font);
+  font-size: var(--developer-font-size);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.social-links :is(a, button) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.social-copy-link {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.social-copy-link:focus-visible {
+  outline: none;
+}
+
+.social-link-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
+  fill: currentColor;
 }
 
 section {
@@ -12,17 +40,23 @@ footer {
   border-top: 1px solid var(--border);
 }
 
+#about h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 .intro-text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--muted);
-  line-height: 1.625;
+  line-height: 1.5;
   max-width: 42rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .view-all-link {
-  font-family: 'Courier New', monospace;
+  font-family: var(--developer-font);
   font-size: 0.9rem;
+  font-weight: 500;
   color: var(--muted);
 }
 
@@ -75,11 +109,12 @@ footer {
 }
 
 .post-date {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
+  font-family: var(--developer-font);
+  font-size: var(--developer-font-size);
+  font-weight: 500;
   color: var(--text);
   margin-bottom: 0.25rem;
-  margin-right:  1rem;
+  margin-right: 1rem;
 }
 
 @media (min-width: 640px) {
@@ -95,13 +130,58 @@ footer {
   display: inline-block;
 }
 
-.post-excerpt,
-.project-description,
-.project-tech,
-.view-all-link,
-.nav-links,
-.social-links a {
+:is(.post-excerpt, .project-description, .project-tech, .view-all-link) {
   color: var(--muted);
+}
+
+:is(.view-all-link, .nav-links a, .social-links :is(a, button)):is(
+    :hover,
+    :focus-visible
+  ) {
+  color: var(--link-hover-text);
+  background-color: var(--link-hover-bg);
+}
+
+.copy-feedback {
+  position: absolute;
+  top: -1.6rem;
+  left: 50%;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: var(--link-hover-bg);
+  color: var(--link-hover-text);
+  font-size: 0.75rem;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0.4rem) scale(0.92);
+}
+
+.social-copy-link.is-copied .copy-feedback {
+  animation: copy-pop 1s ease;
+}
+
+@keyframes copy-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0.4rem) scale(0.92);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -0.2rem) scale(1);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -0.3rem) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -0.55rem) scale(0.98);
+  }
 }
 
 .post-excerpt {
@@ -116,6 +196,7 @@ footer {
 
 .project-tech {
   margin-top: 0.75rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
+  font-family: var(--developer-font);
+  font-size: var(--developer-font-size);
+  font-weight: 500;
 }
