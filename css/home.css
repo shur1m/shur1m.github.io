@@ -79,11 +79,13 @@ footer {
   font-size: 0.9rem;
   color: var(--text);
   margin-bottom: 0.25rem;
+  margin-right:  1rem;
 }
 
 @media (min-width: 640px) {
   .post-date {
-    width: 8rem;
+    flex: 0 0 10ch;
+    white-space: nowrap;
     margin-bottom: 0;
   }
 }
@@ -95,7 +97,7 @@ footer {
 
 .post-excerpt,
 .project-description,
-.project-tags,
+.project-tech,
 .view-all-link,
 .nav-links,
 .social-links a {
@@ -112,7 +114,7 @@ footer {
   font-size: 0.875rem;
 }
 
-.project-tags {
+.project-tech {
   margin-top: 0.75rem;
   font-family: 'Courier New', monospace;
   font-size: 0.75rem;

@@ -4,4 +4,4 @@ build:
 	cd build && pipenv install && pipenv run python build.py
 
 watch:
-	watchexec -w posts -w build -w css -w index.html -- $(MAKE) build
+	watchexec -w markdown -w build -w css -w index.html -- $(MAKE) build

@@ -17,6 +17,11 @@ function addPosts(blogContainer) {
   posts.forEach((post) => {
     const article = document.createElement("article");
 
+    const time = document.createElement("time");
+    time.className = "post-date";
+    time.dateTime = post.date;
+    time.textContent = post.date;
+
     const contentDiv = document.createElement("div");
     contentDiv.className = "post-content";
 
@@ -31,7 +36,7 @@ function addPosts(blogContainer) {
     excerpt.textContent = post.description;
 
     contentDiv.append(h3, excerpt);
-    article.append(contentDiv);
+    article.append(time, contentDiv);
     blogContainer.appendChild(article);
   });
 }
