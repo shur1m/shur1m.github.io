@@ -5,10 +5,10 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
-INPUT_DIR = SCRIPT_DIR.parent / "posts"
+INPUT_DIR = SCRIPT_DIR.parent / "markdown"
 OUTPUT_DIR = SCRIPT_DIR.parent / "blog"
 TEMPLATE_PATH = SCRIPT_DIR / "template.html"
-BLOG_DATA_PATH = SCRIPT_DIR.parent / "js" / "generated-posts.js"
+BLOG_DATA_PATH = SCRIPT_DIR.parent / "js" / "post-metadata.js"
 DESCRIPTION_CHAR_LIMIT = 200
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 

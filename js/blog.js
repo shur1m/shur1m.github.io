@@ -1,0 +1,37 @@
+const posts = window.generatedPosts || [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const blogContainer = document.getElementById("blog-posts");
+  const currentYear = document.getElementById("current-year");
+
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+
+  if (blogContainer) {
+    addPosts(blogContainer);
+  }
+});
+
+function addPosts(blogContainer) {
+  posts.forEach((post) => {
+    const article = document.createElement("article");
+
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "post-content";
+
+    const h3 = document.createElement("h3");
+    const link = document.createElement("a");
+    link.href = post.url;
+    link.textContent = post.title;
+    h3.appendChild(link);
+
+    const excerpt = document.createElement("p");
+    excerpt.className = "post-excerpt";
+    excerpt.textContent = post.description;
+
+    contentDiv.append(h3, excerpt);
+    article.append(contentDiv);
+    blogContainer.appendChild(article);
+  });
+}

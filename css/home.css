@@ -95,7 +95,7 @@ footer {
 
 .post-excerpt,
 .project-description,
-.project-tech,
+.project-tags,
 .view-all-link,
 .nav-links,
 .social-links a {
@@ -112,7 +112,7 @@ footer {
   font-size: 0.875rem;
 }
 
-.project-tech {
+.project-tags {
   margin-top: 0.75rem;
   font-family: 'Courier New', monospace;
   font-size: 0.75rem;

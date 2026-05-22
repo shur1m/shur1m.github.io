@@ -1,26 +1,22 @@
 const posts = window.generatedPosts || [];
-
-const projects = [
-  {
-    name: "WeatherFlow",
-    description: "A minimal terminal-based weather dashboard built with Rust.",
-    tech: ["Rust", "CLI", "OpenWeather API"],
-    url: "#",
-  },
-];
+const projects = window.projectMetadata || [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Set current year
-  document.getElementById("current-year").textContent =
-    new Date().getFullYear();
-
-  // --- Mock Data ---
-
   const blogContainer = document.getElementById("blog-posts");
   const projectContainer = document.getElementById("project-list");
+  const currentYear = document.getElementById("current-year");
 
-  addPosts(blogContainer);
-  addProjects(projectContainer);
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+
+  if (blogContainer) {
+    addPosts(blogContainer);
+  }
+
+  if (projectContainer) {
+    addProjects(projectContainer);
+  }
 });
 
 function addPosts(blogContainer) {
@@ -71,8 +67,8 @@ function addProjects(projectContainer) {
 
     // Create tech stack tags
     const techDiv = document.createElement("div");
-    techDiv.className = "project-tech";
-    techDiv.textContent = project.tech
+    techDiv.className = "project-tags";
+    techDiv.textContent = project.tags
       .map((t) => `[${t.toLowerCase()}]`)
       .join(" ");
 
