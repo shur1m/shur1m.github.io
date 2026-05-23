@@ -7,7 +7,7 @@ def extract_first_paragraph(html_content: str) -> str:
     if paragraph is None:
         return ""
 
-    return paragraph.get_text(strip=True)
+    return paragraph.get_text(" ", strip=True)
 
 
 def truncate_description(text: str, limit: int) -> str:
