@@ -1,0 +1,135 @@
+/* Resume page layout */
+.resume-page {
+  padding-bottom: 2rem;
+}
+
+.resume-header {
+  padding-bottom: 2rem;
+}
+
+.resume-eyebrow {
+  margin-bottom: 0.75rem;
+  font-family: var(--developer-font);
+  font-size: var(--developer-font-size);
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: lowercase;
+}
+
+/* Resume sections */
+.resume-section,
+.skills-section {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+:is(.resume-section, .skills-section) .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+:is(.resume-section, .skills-section) .section-header h2 {
+  margin-bottom: 0;
+}
+
+/* Skills */
+#skills-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skill-group {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--surface);
+}
+
+.skill-group:first-child {
+  padding-top: 0;
+}
+
+.skill-group:last-child {
+  border-bottom: none;
+}
+
+.skill-group-title {
+  margin-bottom: 0.5rem;
+}
+
+.skill-group-items {
+  color: var(--muted);
+}
+
+#resume-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.resume-item {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--surface);
+}
+
+.resume-item:first-child {
+  padding-top: 0;
+}
+
+.resume-item:last-child {
+  border-bottom: none;
+}
+
+/* Resume role content */
+.resume-period {
+  font-family: var(--developer-font);
+  font-size: var(--developer-font-size);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.resume-role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.resume-company {
+  color: var(--muted);
+}
+
+.resume-description {
+  margin-top: 0.5rem;
+  max-width: 40rem;
+  color: var(--muted);
+}
+
+.resume-empty {
+  padding: 1.25rem 0;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  #skills-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .skill-group {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .resume-item {
+    grid-template-columns: 14ch minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: start;
+  }
+
+  .resume-period {
+    white-space: nowrap;
+  }
+}

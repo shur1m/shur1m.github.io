@@ -12,3 +12,15 @@ export interface ProjectMetadata {
   tech?: string[];
   url: string;
 }
+
+export interface ResumeRoleMetadata {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+export interface SkillGroupMetadata {
+  title: string;
+  items: string[];
+}
