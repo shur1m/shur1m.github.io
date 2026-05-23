@@ -30,13 +30,17 @@ def load_post(source_path: Path) -> tuple[Post, str, str]:
         description=description,
         url=f"blog/{output_name}",
     )
-    full_html = render_post_html(title=title, content=html_content)
+    full_html = render_post_html(
+        title=title,
+        date_text=created_on.isoformat(),
+        content=html_content,
+    )
     return post, output_name, full_html
 
 
-def render_post_html(*, title: str, content: str) -> str:
+def render_post_html(*, title: str, date_text: str, content: str) -> str:
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
-    return template.format(title=title, content=content)
+    return template.format(title=title, date_text=date_text, content=content)
 
 
 def _require_string_field(metadata: dict, field_name: str, source_path: Path) -> str:
