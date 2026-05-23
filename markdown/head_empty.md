@@ -1,0 +1,18 @@
+---
+title: Full Context, Head Empty
+date: 2026-05-22
+---
+
+# Full Context, Head Empty
+
+I built this static site using [Codex's](https://openai.com/codex/) free tier in a day. Seeing my AI IDE infinity gauntlet go brr and watching an engineer hook Jira up to Claude makes me feel like "hand coding" might really be over.
+
+I did have to ask [Mr. J'ai Pété](https://www.reddit.com/r/ChatGPT/comments/158e8os/in_case_anyone_didnt_know/) to follow DRY a couple times along the way. I also stopped it from building its own HTML parser instead of importing bs4. But without its help I would have given up on the CSS styling.
+
+With the new kid(s) on the block, everyone is wondering what a software engineer is. Are we going to be "elevated" and all become software architects, or are we just here to have "[good taste](https://www.seangoedecke.com/taste/)" in software?
+
+As fun as it is to see things build themselves, there was something magical about finding the perfect method for your use case. Now, software engineers are forced to practice their poor social skills with a machine trained on reddit posts. 
+
+On the brighter side, we now live in an age where anyone can build software. We can spend more time thinking about what we want to build instead of how to build it. Internship seekers can generate infinite personal projects. Who knows what lies ahead?
+
+We live in crazy times. Let me know if you have a job for me in Japan.
