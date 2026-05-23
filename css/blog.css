@@ -1,3 +1,21 @@
+.blog-post-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-family: var(--developer-font);
+  font-size: var(--developer-font-size);
+  color: var(--muted);
+}
+
+.blog-post {
+  max-width: 42rem;
+}
+
 .blog-post-date {
   display: inline-block;
   font-family: var(--developer-font);

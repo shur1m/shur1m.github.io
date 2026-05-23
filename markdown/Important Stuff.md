@@ -1,9 +1,8 @@
 ---
-title: Important Stuff
+title: Head Empty, No Thoughts
 date: 2026-05-22
 ---
 
-# Wow So Important
+# Full Context, Head Empty
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet enim
-vel lectus volutpat hendrerit sed vitae est.
+I built this website using [Codex's](https://openai.com/codex/) free tier. 

@@ -10,11 +10,25 @@
 </head>
 
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">Anson Xu</a>
+            <div class="nav-links">
+                <a href="../about.html">about</a>
+                <a href="../blog.html">blog</a>
+                <a href="../projects.html">projects</a>
+            </div>
+        </div>
+    </nav>
+
     <main>
-        <article class="blog-post">
-            <time class="blog-post-date" datetime="{date_text}">{date_text}</time>
-            {content}
-        </article>
+        <section class="blog-post-shell">
+            <a href="../blog.html" class="back-link" aria-label="Back to all blog posts">&larr; Back to Writings</a>
+            <article class="blog-post">
+                <time class="blog-post-date" datetime="{date_text}">{date_text}</time>
+                {content}
+            </article>
+        </section>
     </main>
 </body>
 

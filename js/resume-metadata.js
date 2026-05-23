@@ -24,15 +24,32 @@ export const resumeRoleMetadata = [
 /** @type {SkillGroupMetadata[]} */
 export const skillGroupMetadata = [
   {
-    title: "Databases",
-    items: ["PostgreSQL", "MySQL", "DynamoDB", "Redis"],
-  },
-  {
     title: "Programming Languages",
-    items: ["Go", "Python", "Java", "TypeScript", "JavaScript"],
+    items: [
+      "Go",
+      "Python",
+      "Java",
+      "TypeScript",
+      "JavaScript",
+      "Bash",
+      "C/C++",
+    ],
   },
   {
     title: "Technologies",
-    items: ["AWS", "Docker", "Kubernetes", "Angular", "React", "OpenTelemetry"],
+    items: [
+      "AWS",
+      "DynamoDB",
+      "Docker",
+      "IaC",
+      "Node.js",
+      "Angular",
+      "React",
+      "OpenTelemetry",
+    ],
+  },
+  {
+    title: "Yap Languages",
+    items: ["English", "Japanese", "Mandarin"],
   },
 ];
