@@ -1,16 +1,8 @@
 // @ts-check
 
-/**
- * @typedef {Object} ProjectMetadata
- * @property {string} name
- * @property {string} description
- * @property {string[]=} tags
- * @property {string[]=} tech
- * @property {string} url
- */
+/** @typedef {import("./types").ProjectMetadata} ProjectMetadata */
 
-/** @type {ProjectMetadata[]} */
-const projects = window.projectMetadata || [];
+import { projectMetadata as projects } from "./project-metadata.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   /** @type {HTMLElement | null} */
@@ -19,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentYear = document.getElementById("current-year");
 
   if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
+    currentYear.textContent = new Date().getFullYear().toString();
   }
 
   if (projectContainer) {

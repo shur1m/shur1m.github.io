@@ -1,15 +1,8 @@
 // @ts-check
 
-/**
- * @typedef {Object} PostMetadata
- * @property {string} title
- * @property {string} date
- * @property {string} description
- * @property {string} url
- */
+/** @typedef {import("./types").PostMetadata} PostMetadata */
 
-/** @type {PostMetadata[]} */
-const posts = window.generatedPosts || [];
+import { generatedPosts as posts } from "./post-metadata.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   /** @type {HTMLElement | null} */
@@ -18,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentYear = document.getElementById("current-year");
 
   if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
+    currentYear.textContent = new Date().getFullYear().toString();
   }
 
   if (blogContainer) {

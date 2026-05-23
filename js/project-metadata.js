@@ -1,15 +1,9 @@
 // @ts-check
 
-/**
- * @typedef {Object} ProjectMetadata
- * @property {string} name
- * @property {string} description
- * @property {string[]} tags
- * @property {string} url
- */
+/** @typedef {import("./types").ProjectMetadata} ProjectMetadata */
 
 /** @type {ProjectMetadata[]} */
-window.projectMetadata = [
+export const projectMetadata = [
   {
     name: "WhenCanIRetire",
     description: "A financial planner written by and for me.",

@@ -1,27 +1,10 @@
 // @ts-check
 
-/**
- * @typedef {Object} PostMetadata
- * @property {string} title
- * @property {string} date
- * @property {string} description
- * @property {string} url
- */
+/** @typedef {import("./types").PostMetadata} PostMetadata */
+/** @typedef {import("./types").ProjectMetadata} ProjectMetadata */
 
-/**
- * @typedef {Object} ProjectMetadata
- * @property {string} name
- * @property {string} description
- * @property {string[]=} tags
- * @property {string[]=} tech
- * @property {string} url
- */
-
-/** @type {PostMetadata[]} */
-const posts = window.generatedPosts || [];
-
-/** @type {ProjectMetadata[]} */
-const projects = window.projectMetadata || [];
+import { generatedPosts as posts } from "./post-metadata.js";
+import { projectMetadata as projects } from "./project-metadata.js";
 
 const HOMEPAGE_POST_LIMIT = 3;
 const TYPEWRITER_CHARACTER_DELAY_MS = 55;
@@ -104,7 +87,6 @@ function addProjects(projectContainer) {
     const div = document.createElement("div");
     div.className = "project-item";
 
-    // Create heading and link
     const h3 = document.createElement("h3");
     h3.className = "project-name";
 
@@ -114,19 +96,16 @@ function addProjects(projectContainer) {
     link.textContent = `${project.name} ↗`;
     h3.appendChild(link);
 
-    // Create description
     const desc = document.createElement("p");
     desc.className = "project-description";
     desc.textContent = project.description;
 
-    // Create tech stack tags
     const techDiv = document.createElement("div");
     techDiv.className = "project-tech";
     techDiv.textContent = projectTags
-      .map((t) => `[${t.toLowerCase()}]`)
+      .map((tag) => `[${tag.toLowerCase()}]`)
       .join(" ");
 
-    // Assemble and append to fragment
     div.append(h3, desc, techDiv);
     projectContainer.appendChild(div);
   });
@@ -137,7 +116,8 @@ function addProjects(projectContainer) {
  * @returns {void}
  */
 function enableCopyToClipboard(copyButton) {
-  let feedbackTimeoutId = -1;
+  /** @type {number | undefined} */
+  let feedbackTimeoutId;
   const copyText = copyButton.dataset.copyText;
 
   copyButton.addEventListener("click", async () => {

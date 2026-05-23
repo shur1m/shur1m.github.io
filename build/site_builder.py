@@ -26,15 +26,9 @@ def write_post_metadata(posts: list[Post]) -> None:
     metadata = [post.as_metadata() for post in sorted_posts]
     js_content = (
         "// @ts-check\n\n"
-        "/**\n"
-        " * @typedef {Object} PostMetadata\n"
-        " * @property {string} title\n"
-        " * @property {string} date\n"
-        " * @property {string} description\n"
-        " * @property {string} url\n"
-        " */\n\n"
+        '/** @typedef {import("./types").PostMetadata} PostMetadata */\n\n'
         "/** @type {PostMetadata[]} */\n"
-        "window.generatedPosts = "
+        "export const generatedPosts = "
         + json.dumps(metadata, indent=2)
         + ";\n"
     )
