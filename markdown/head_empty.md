@@ -13,6 +13,6 @@ With the new kid(s) on the block, everyone is wondering what a software engineer
 
 As fun as it is to see things build themselves, there was something magical about finding the perfect method for your use case. Now, software engineers are forced to practice their poor social skills with a machine trained on reddit posts. 
 
-On the brighter side, we now live in an age where anyone can build software. We can spend more time thinking about what we want to build instead of how to build it. Internship seekers can generate infinite personal projects. Who knows what lies ahead?
+On the brighter side, we now live in an age where anyone can build software. We can spend more time thinking about what we want to build instead of how to build it. Internship seekers can generate infinite personal projects, and [Google has completely removed the IDE from Antigravity](https://antigravity.google/blog/introducing-google-antigravity-2-0).
 
 We live in crazy times. Let me know if you have a job for me in Japan.
