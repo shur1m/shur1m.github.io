@@ -16,6 +16,13 @@
   max-width: 42rem;
 }
 
+.blog-post a {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
 .blog-post-date {
   display: inline-block;
   font-family: var(--developer-font);

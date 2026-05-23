@@ -5,9 +5,9 @@
 /** @type {PostMetadata[]} */
 export const generatedPosts = [
   {
-    "title": "Head Empty, No Thoughts",
+    "title": "Full Context, Head Empty",
     "date": "2026-05-22",
-    "description": "I built this website using Codex's free tier.",
-    "url": "blog/Important Stuff.html"
+    "description": "I built this static site using Codex's free tier in a day. Seeing my AI IDE infinity gauntlet go brr and watching an engineer hook Jira up to Claude makes me feel like \"hand cod...",
+    "url": "blog/head_empty.html"
   }
 ];
