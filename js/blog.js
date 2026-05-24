@@ -7,12 +7,9 @@ import { generatedPosts as posts } from "./post-metadata.js";
 document.addEventListener("DOMContentLoaded", () => {
   /** @type {HTMLElement | null} */
   const blogContainer = document.getElementById("blog-posts");
-  /** @type {HTMLElement | null} */
-  const currentYear = document.getElementById("current-year");
 
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear().toString();
-  }
+
+
 
   if (blogContainer) {
     addPosts(blogContainer);

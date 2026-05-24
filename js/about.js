@@ -13,12 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const resumeContainer = document.getElementById("resume-list");
   /** @type {HTMLElement | null} */
   const skillsContainer = document.getElementById("skills-list");
-  /** @type {HTMLElement | null} */
-  const currentYear = document.getElementById("current-year");
 
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear().toString();
-  }
+
+
 
   if (resumeContainer) {
     addResumeRoles(resumeContainer);

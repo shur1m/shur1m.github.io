@@ -17,16 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const blogContainer = document.getElementById("blog-posts");
   /** @type {HTMLElement | null} */
   const projectContainer = document.getElementById("project-list");
-  /** @type {HTMLElement | null} */
-  const currentYear = document.getElementById("current-year");
+
   /** @type {HTMLButtonElement | null} */
   const copyButton = document.querySelector(".social-copy-link");
   /** @type {HTMLElement | null} */
   const terminalTitle = document.querySelector(".terminal-title");
 
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear().toString();
-  }
+
 
   if (blogContainer) {
     addPosts(blogContainer);
