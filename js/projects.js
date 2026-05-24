@@ -7,12 +7,9 @@ import { projectMetadata as projects } from "./project-metadata.js";
 document.addEventListener("DOMContentLoaded", () => {
   /** @type {HTMLElement | null} */
   const projectContainer = document.getElementById("project-list");
-  /** @type {HTMLElement | null} */
-  const currentYear = document.getElementById("current-year");
 
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear().toString();
-  }
+
+
 
   if (projectContainer) {
     addProjects(projectContainer);

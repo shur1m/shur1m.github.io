@@ -1,5 +1,6 @@
 import markdown
 import frontmatter
+import html
 
 from datetime import date
 from pathlib import Path
@@ -18,7 +19,7 @@ def load_post(source_path: Path) -> tuple[Post, str, str]:
     title = _require_string_field(document.metadata, "title", source_path)
     created_on = _require_iso_date(document.metadata, "date", source_path)
 
-    html_content = markdown.markdown(document.content)
+    html_content = markdown.markdown(document.content, extensions=["fenced_code", "extra"])
     output_name = f"{source_path.stem}.html"
     description = truncate_description(
         extract_first_paragraph(html_content), DESCRIPTION_CHAR_LIMIT
@@ -34,13 +35,19 @@ def load_post(source_path: Path) -> tuple[Post, str, str]:
         title=title,
         date_text=created_on.isoformat(),
         content=html_content,
+        description=html.escape(description, quote=True),
     )
     return post, output_name, full_html
 
 
-def render_post_html(*, title: str, date_text: str, content: str) -> str:
+def render_post_html(*, title: str, date_text: str, content: str, description: str) -> str:
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
-    return template.format(title=title, date_text=date_text, content=content)
+    return (
+        template.replace("{title}", title)
+        .replace("{date_text}", date_text)
+        .replace("{content}", content)
+        .replace("{description}", description)
+    )
 
 
 def _require_string_field(metadata: dict, field_name: str, source_path: Path) -> str:
