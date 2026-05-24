@@ -1,0 +1,3 @@
+- DO NOT attempt to commit to the main branch
+- keep things simple
+- use conventional commits when pushing changes
