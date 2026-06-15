@@ -1,13 +1,31 @@
 import markdown
 import frontmatter
 import html
+import xml.etree.ElementTree as etree
 
 from datetime import date
 from pathlib import Path
+from markdown.inlinepatterns import InlineProcessor
+from markdown.extensions import Extension
 
 from html_utils import extract_first_paragraph, truncate_description
 from post_models import Post
 from settings import DESCRIPTION_CHAR_LIMIT, TEMPLATE_PATH
+
+
+class RubyPattern(InlineProcessor):
+    def handleMatch(self, m, data):
+        el = etree.Element("ruby")
+        el.text = m.group(1)
+        rt = etree.SubElement(el, "rt")
+        rt.text = m.group(2)
+        return el, m.start(0), m.end(0)
+
+
+class RubyExtension(Extension):
+    def extendMarkdown(self, md):
+        # Matches {text|ruby}
+        md.inlinePatterns.register(RubyPattern(r"\{([^|}]+)\|([^}]+)\}", md), "ruby", 175)
 
 
 class PostValidationError(ValueError):
@@ -19,7 +37,9 @@ def load_post(source_path: Path) -> tuple[Post, str, str]:
     title = _require_string_field(document.metadata, "title", source_path)
     created_on = _require_iso_date(document.metadata, "date", source_path)
 
-    html_content = markdown.markdown(document.content, extensions=["fenced_code", "extra"])
+    html_content = markdown.markdown(
+        document.content, extensions=["fenced_code", "extra", RubyExtension()]
+    )
     output_name = f"{source_path.stem}.html"
     description = truncate_description(
         extract_first_paragraph(html_content), DESCRIPTION_CHAR_LIMIT
