@@ -5,9 +5,9 @@
 /** @type {PostMetadata[]} */
 export const generatedPosts = [
   {
-    "title": "Maybe We Should All Work in Convenience Stores: \u30b3\u30f3\u30d3\u30cb\u4eba\u9593",
-    "date": "2026-06-14",
-    "description": "As much as everyone would like to see themselves as big boys and girls who make their own decisions, a lot of us just \"end up\" where we are. Read \"Convenience Store Human\" so th...",
+    "title": "AI will Never Generate Art until it lives in New York City",
+    "date": "2026-08-11",
+    "description": "or San Francisco. Or your mom's basement. I mean, have you tried to hold a conversation with an LLM? I recently tried to use ChatGPT to practice speaking for language learning,...",
     "url": "blog/conbini_ningen.html"
   },
   {
