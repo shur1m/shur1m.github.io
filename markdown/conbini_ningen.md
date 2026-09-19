@@ -1,14 +1,8 @@
 ---
-title: "AI will Never Generate Art until it lives in New York City"
+title: "Test"
 date: 2026-08-11
 ---
 
-# AI will Never Generate Art until it lives in New York City
+# Test
 
-or San Francisco. Or your mom's basement. I mean, have you tried to hold a conversation with an LLM? I recently tried to use ChatGPT to practice speaking for language learning, and one conversation never leads to the next. If you complain about how you got your catalytic converter stolen, the clanker will "feel sorry" but it never brings up the last time their house was vandalized.
-
-That's because *it* never has and never will experience anything. Books—even fiction—are interesting because we live in a real world. They give us a glimpse of the author's hardships, ideals, and lived experiences. Even a LLM bedtime story feels empty because you know it isn't tied to any *person's* empathy.
-
-Art has never been about the product. Beethoven wrote music, but it was even more impressive because he was deaf. In school we  not only learn about Picasso's paintings, but also about the life he led.
-
-AI generation is garbled data of what society believes is a good story, a good painting, a good song. This doesn't mean it is not a good tool, but people have always cared about people, not the averaged ideal calculated by a data center.
+ligma
