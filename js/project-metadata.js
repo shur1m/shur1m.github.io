@@ -5,10 +5,10 @@
 /** @type {ProjectMetadata[]} */
 export const projectMetadata = [
   {
-    name: "WhenCanIRetire",
+    name: "HowMuchMoolah",
     description: "A financial planner written by and for me.",
     tags: ["Python", "Matplotlib", "Personal Finance"],
-    url: "https://github.com/shur1m/whenCanIRetire",
+    url: "https://github.com/shur1m/howmuchmoolah",
   },
   {
     name: "Schwab2Quiffen",
